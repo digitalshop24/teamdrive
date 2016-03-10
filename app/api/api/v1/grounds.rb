@@ -3,7 +3,10 @@ module API
     class GroundPreview < Grape::Entity
       expose :title, documentation: { type: "String", desc: "Заоловок"}
       expose :body, documentation: { type: "String", desc: "Полигон"}
-      expose :avatar, documentation: { type: "Attachment", desc: "Лого"}
+      expose :image, documentation: { type: "Attachment", desc: "Лого"}
+      expose :images, documentation: { type: "Array", desc: "Kартинки"} do |event|
+			 event.images.map{ |x| x.image.url} if event.images	
+			end
     end
   end
 end
