@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '4.2.3'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -11,7 +10,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
-gem 'activeadmin'
+gem 'activeadmin', '1.0.0.pre1'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'paperclip'
 gem 'grape', '~> 0.13.0'
