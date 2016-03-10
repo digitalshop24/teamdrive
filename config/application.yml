@@ -1,0 +1,11 @@
+ default: &default
+   app_name: 'temadrive'
+   host: 'localhost:3000'
+   database_username: 'postgres'
+   database_password: '0194'
+ development:
+   <<: *default
+test:
+   <<: *default
+ production:
+   <<: *default
