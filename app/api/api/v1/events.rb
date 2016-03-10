@@ -5,7 +5,7 @@ module API
       expose :body, documentation: { type: "String", desc: "Событие"}
       expose :image, documentation: { type: "Attachment", desc: "Лого"}
       expose :images, documentation: { type: "Array", desc: "Kартинки"} do |event|
-			 event.images.map{ |x| x.image.url}	
+			 event.images.map{ |x| x.image.url} if event.images	
 			end
     end
   end
