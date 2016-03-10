@@ -14,5 +14,5 @@ production:
   <<: *default
   database: 'd2lkra6b0cqdu7'
   host: 'ec2-54-228-183-183.eu-west-1.compute.amazonaws.com'
-  username: 'rrgymarcmnrstk'
-  password: 'ywC0VmuvfjTNcCwx991Bj9E-ld'
+  database_username: 'rrgymarcmnrstk'
+  databse_password: 'ywC0VmuvfjTNcCwx991Bj9E-ld'
