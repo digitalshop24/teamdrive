@@ -4,9 +4,9 @@ module API
       expose :title, documentation: { type: "String", desc: "Заоловок"}
       expose :body, documentation: { type: "String", desc: "Статья"}
       expose :description, documentation: { type: "String", desc: "Описание"}
-      expose :avatar, documentation: { type: "Attachment", desc: "Лого"}
-      expose :pictures, documentation: { type: "Array", desc: "Kартинки"} do |article|
-			 article.pictures.map{ |x| x.image.url}	
+      expose :image, documentation: { type: "Attachment", desc: "Лого"}
+      expose :images, documentation: { type: "Array", desc: "Kартинки"} do |event|
+			 event.images.map{ |x| x.image.url} if event.images	
 			end
     end
   end
