@@ -1,5 +1,8 @@
  default: &default
    app_name: 'temadrive'
+   S3_BUCKET_NAME: 'teamdrivedigitalshop'
+   AWS_ACCESS_KEY_ID: 'AKIAJFSIM3J3AJWZRXVA'
+   AWS_SECRET_ACCESS_KEY: '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'
    host: 'localhost:3000'
    database_username: 'postgres'
    database_password: '0194'
