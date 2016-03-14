@@ -1,6 +1,7 @@
 module API
   module Entities
     class NewsPreview < Grape::Entity
+      expose :id, documentation: { type: "Integer", desc: "id"}
       expose :title, documentation: { type: "String", desc: "Заоловок"}
       expose :body, documentation: { type: "String", desc: "Новость"}
       expose :description, documentation: { type: "String", desc: "Описание"}

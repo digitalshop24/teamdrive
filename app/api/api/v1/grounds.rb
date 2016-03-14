@@ -1,6 +1,7 @@
 module API
   module Entities
     class GroundPreview < Grape::Entity
+      expose :id, documentation: { type: "Integer", desc: "id"}
       expose :title, documentation: { type: "String", desc: "Заоловок"}
       expose :body, documentation: { type: "String", desc: "Полигон"}
       expose :image, documentation: { type: "Attachment", desc: "Лого"}
