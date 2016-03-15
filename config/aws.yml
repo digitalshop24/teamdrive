@@ -5,3 +5,7 @@ development:
   s3_host_name: "s3-eu-central-1.amazonaws.com"
 
 production:
+  access_key_id: 'AKIAJJJDDIL2ICSKTYTA'
+  secret_access_key: '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'
+  region: "eu-central-1"
+  s3_host_name: "s3-eu-central-1.amazonaws.com"
