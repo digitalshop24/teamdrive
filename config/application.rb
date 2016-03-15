@@ -14,6 +14,11 @@ module Teamdrive
         resource '*', :headers => :any, :methods => [:get, :post, :options]
       end
     end
+
+    config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_host_name => 's3-eu-west-1.amazonaws.com'
+  }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

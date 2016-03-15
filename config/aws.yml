@@ -1,0 +1,9 @@
+development:
+  access_key_id: 'AKIAJFSIM3J3AJWZRXVA'
+  secret_access_key: '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'
+  bucket: 'teamdrivedigitalshop'
+
+production:
+  access_key_id: 'AKIAJFSIM3J3AJWZRXVA'
+  secret_access_key: '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'
+  bucket: 'teamdrivedigitalshop'
