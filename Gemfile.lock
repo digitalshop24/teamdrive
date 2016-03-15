@@ -253,7 +253,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin (= 1.0.0.pre1)
-  aws-sdk (< 2.0)
+  aws-sdk
   ckeditor!
   coffee-rails (~> 4.1.0)
   devise
