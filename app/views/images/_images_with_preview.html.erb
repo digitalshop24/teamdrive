@@ -1,6 +1,6 @@
-<% if object.image_file_name %>
+<% if object.image %>
   <div class="image-view preview">
-    <%= image_tag(object.image.url(:thumb)) %>
+    <%= image_tag(object.image.image.url(:thumb)) %>
     <p align="center">
       <strong>ПРЕВЬЮ</strong>
     </p>

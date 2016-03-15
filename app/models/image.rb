@@ -12,7 +12,8 @@ class Image < ActiveRecord::Base
   }
   
   def as_preview(object)
-    object.update(image: image)
+    # binding.pry
+    object.update(image: self)
   end
 end
 

@@ -6,9 +6,8 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.paperclip_defaults = {
     :storage => :s3,
-    :s3_region => 'eu-central-1' ,
     :s3_credentials => {
-      :bucket => 'teamdrivedigitalshop',
+      :bucket => 'teamdrived24shop',
       :s3_credentials => "#{Rails.root}/config/aws.yml",
     }
   }

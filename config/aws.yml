@@ -1,9 +1,6 @@
 development:
-  access_key_id: 'AKIAJFSIM3J3AJWZRXVA'
-  secret_access_key: '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'
+  access_key_id: 'AKIAJJJDDIL2ICSKTYTA'
+  secret_access_key: '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'
+  region: "eu-central-1"
   s3_host_name: "s3-eu-central-1.amazonaws.com"
 
-production:
-  access_key_id: 'AKIAJFSIM3J3AJWZRXVA'
-  secret_access_key: '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'
-  s3_host_name: "s3-eu-central-1.amazonaws.com"
