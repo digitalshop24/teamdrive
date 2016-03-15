@@ -4,6 +4,7 @@ module Galleryable
 	end
 	def images=(array)
 		self.create_gallery unless self.gallery
+		
 		self.gallery.images = array
 	end
 end
