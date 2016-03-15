@@ -8,8 +8,10 @@ class Article < ActiveRecord::Base
   after_save :set_preview
 
   def set_preview
-    unless image_file_name
-      images.first.as_preview(self) if images
+    if !image && images
+      images.first.as_preview(self)
+      # update(image: images.first)
+    #   images.first.as_preview(self) if images
     end
   end
 end
