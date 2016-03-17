@@ -1,6 +1,6 @@
  default: &default
    app_name: 'temadrive'
-   AWS_BUCKET: 'teamdrivedigitalshop'
+   S3_BUCKET_NAME: 'teamdrived24shop'
    AWS_ACCESS_KEY_ID: 'AKIAJFSIM3J3AJWZRXVA'
    AWS_SECRET_ACCESS_KEY: '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'
    host: 'localhost:3000'
