@@ -3,8 +3,7 @@ class Ckeditor::AttachmentFile < Ckeditor::Asset
     styles: { thumb: "200x200>", medium: "700x500>", big: "1000x1000>" }, 
     :convert_options => { :medium => '-quality 70 -strip' }, 
     :path => '/:class/:attachment/:id_partition/:style/:filename',
-    :url  => ":s3_eu_url",
-    :s3_credentials => "#{Rails.root.to_s}/config/aws.yml"
+    :url  => ":s3_eu_url"
   
   Paperclip.interpolates(:s3_eu_url) { |attachment, style|
   "#{attachment.s3_protocol}://s3-eu-central-1.amazonaws.com/#{attachment.bucket_name}/#{attachment.path(style).gsub(%r{^/}, "")}"
