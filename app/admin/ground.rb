@@ -26,6 +26,7 @@ show do |article|
 	end
 end
 index do
+	selectable_column
 		column :title
 		column :body do |event|
 			event.body.html_safe

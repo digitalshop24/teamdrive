@@ -28,6 +28,7 @@ show do |article|
 	end
 end
 index do
+	selectable_column
 		column :title
 		column :description
 		column :body do |event|
