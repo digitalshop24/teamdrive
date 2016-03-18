@@ -4,7 +4,9 @@ module API
       expose :id, documentation: { type: "Integer", desc: "id"}
       expose :title, documentation: { type: "String", desc: "Заоловок"}
       expose :body, documentation: { type: "String", desc: "Полигон"}
-      expose :image, documentation: { type: "Attachment", desc: "Лого"}
+      expose :image, documentation: { type: "Array", desc: "Kартинки"} do |event|
+			 event.image.image.url if event.image	
+			end
       expose :images, documentation: { type: "Array", desc: "Kартинки"} do |event|
 			 event.images.map{ |x| x.image.url} if event.images	
 			end
