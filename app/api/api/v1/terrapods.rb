@@ -8,7 +8,13 @@ module API
       expose :image, documentation: { type: "Array", desc: "Kартинки"} do |event|
 			 event.image.image.url if event.image	
 			end
-      expose :images, documentation: { type: "Array", desc: "Kартинки"} do |event|
+			expose :count do |c|
+				0
+			end
+			expose :price_user do |c|
+				0
+			end
+			expose :images, documentation: { type: "Array", desc: "Kартинки"} do |event|
 			 event.images.map{ |x| x.image.url} if event.images	
 			end
     end
