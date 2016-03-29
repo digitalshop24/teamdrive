@@ -4,7 +4,8 @@ permit_params :body, :title, :description, images: []
 form do |f|
 	  f.inputs do
 		  f.input :title
-		  f.input :description
+		  f.input :video
+			f.input :description
 		  f.input :body, :as => :ckeditor
 			f.input :images, as: :file, input_html: { multiple: true }
 			li id: 'images' do

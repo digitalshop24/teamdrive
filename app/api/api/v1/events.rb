@@ -4,6 +4,9 @@ module API
       expose :id, documentation: { type: "Integer", desc: "id"}
       expose :title, documentation: { type: "String", desc: "Заоловок"}
       expose :body, documentation: { type: "String", desc: "Событие"}
+      expose :video, documentation: { type: "String", desc: "Код"} do |video|
+				video.video.split('?')[1][/v=[a-zA-Z\d]+/][2..-1] if video.video
+			end
       expose :image, documentation: { type: "Array", desc: "Kартинки"} do |event|
 			 event.image.image.url if event.image	
 			end

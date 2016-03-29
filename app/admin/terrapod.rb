@@ -3,6 +3,7 @@ permit_params :body, :title, :price, images: []
 form do |f|
 	  f.inputs do
 		  f.input :title
+		  f.input :video
 		  f.input :price
 		  f.input :body, :as => :ckeditor
 			f.input :images, as: :file, input_html: { multiple: true }
