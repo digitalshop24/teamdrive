@@ -1,6 +1,6 @@
 ActiveAdmin.register Article do
 
-permit_params :body, :title, :description, images: []
+permit_params :video, :body, :title, :description, images: []
 form do |f|
 	  f.inputs do
 		  f.input :title

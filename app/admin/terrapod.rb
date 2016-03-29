@@ -1,5 +1,5 @@
 ActiveAdmin.register Terrapod do
-permit_params :body, :title, :price, images: []
+permit_params :video, :body, :title, :price, images: []
 form do |f|
 	  f.inputs do
 		  f.input :title

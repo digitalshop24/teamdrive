@@ -1,5 +1,5 @@
 ActiveAdmin.register Ground do
-permit_params :body, :title, images: []
+permit_params :video, :body, :title, images: []
 form do |f|
 	  f.inputs do
 		  f.input :title
