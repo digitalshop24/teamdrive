@@ -1,4 +1,6 @@
 class Terrapod < ActiveRecord::Base
+  has_attached_file :preview
+  validates_attachment_content_type :preview, content_type: /\Aimage\/.*\Z/
  belongs_to :image
   include Galleryable
   has_one :gallery, as: :galleryable, dependent: :destroy
