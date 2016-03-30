@@ -2,7 +2,8 @@ ActiveAdmin.register Terrapod do
 permit_params :video, :body, :title, :price, images: []
 form do |f|
 	  f.inputs do
-		  f.input :title
+		  f.input :preview
+			f.input :title
 		  f.input :video
 		  f.input :price
 		  f.input :body, :as => :ckeditor
