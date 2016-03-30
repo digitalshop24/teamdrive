@@ -5,7 +5,7 @@ module API
       expose :title, documentation: { type: "String", desc: "Заоловок"}
       expose :body, documentation: { type: "String", desc: "Событие"}
       expose :video, documentation: { type: "String", desc: "Код"} do |video|
-				video.video.split('?')[1][/v=[a-zA-Z\d]+/][2..-1] if video.video
+				video.video.split('?')[1][/v=[a-zA-Z\d]+/][2..-1] if (video.video && !(video.video.empty?))
 			end
       expose :image, documentation: { type: "Array", desc: "Kартинки"} do |event|
 			 event.image.image.url if event.image	
