@@ -4,7 +4,7 @@ module API
       expose :id, documentation: { type: "Integer", desc: "id"}
       expose :title, documentation: { type: "String", desc: "Заоловок"}
       expose :video, documentation: { type: "String", desc: "Код"} do |video|
-				video.video.split('?')[1][/v=[a-zA-Z\d]+/][2..-1] if video.video
+				video.video.split('?')[1][/v=[a-zA-Z\d]+/][2..-1] if (video.video && !(video.video.empty?))
 			end
       expose :body, documentation: { type: "String", desc: "Новость"}
       expose :description, documentation: { type: "String", desc: "Описание"}
