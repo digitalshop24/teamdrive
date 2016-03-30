@@ -3,7 +3,9 @@ module API
     class TerrapodPreview < Grape::Entity
       expose :id, documentation: { type: "Integer", desc: "id"}
       expose :title, documentation: { type: "String", desc: "Заоловок"}
-      expose :preview, documentation: { type: "Attachment", desc: "Одна картинка"}
+      expose :preview, documentation: { type: "Attachment", desc: "Одна картинка"} do |terra|
+				terra.preview.url if terra.image
+			end
       expose :video, documentation: { type: "String", desc: "Код"} do |video|
 				video.video.split('?')[1][/v=[a-zA-Z\d]+/][2..-1] if (video.video && !(video.video.empty?))
 			end
