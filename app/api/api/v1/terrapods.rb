@@ -1,13 +1,14 @@
 module API
   module Entities
     class TerrapodPreview < Grape::Entity
+      regex = /^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/
       expose :id, documentation: { type: "Integer", desc: "id"}
       expose :title, documentation: { type: "String", desc: "Заоловок"}
       expose :preview, documentation: { type: "Attachment", desc: "Одна картинка"} do |terra|
 				terra.preview.url if terra.image
 			end
       expose :video, documentation: { type: "String", desc: "Код"} do |video|
-				video.video.split('?')[1][/v=[a-zA-Z\d]+/][2..-1] if (video.video && !(video.video.empty?))
+				video.video.scan(regex).flatten.first if (video.video && !(video.video.empty?))
 			end
       expose :body, documentation: { type: "String", desc: "Событие"}
       expose :price, documentation: { type: "String", desc: "Цена"}
