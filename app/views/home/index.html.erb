@@ -1,0 +1,325 @@
+<header>
+      <nav class="navbar navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#top">
+              <img src="img/TDlogo.png">
+            </a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li>
+                <a class="mobHide page-scroll"
+                ng-href="#catalogSection">Каталог</a>
+              </li>
+              <li>
+                <a class="mobHide page-scroll"
+                ng-href="#priceSection">Стоимость</a>
+              </li>
+              <li>
+                <a class="mobHide page-scroll"
+                ng-href="#eventMakingSection">Мероприятия</a>
+              </li>
+              <li>
+                <a class="mobHide" ng-click="showMap(wtf=true)">Контакты</a>
+              </li>
+              <li class="mobHide" data-toggle="modal" data-target=".MIN">
+                <a>Обратная связь</a>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+  </header>
+<section class="WelcomeScreen" id="WelcomeScreen">
+    <div id="video-wrap" class="video-wrap" >
+      <div class="contentOnVideo text-center">
+        <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+          <ul>
+            <li>+7 (903) 118-07-45</li>
+            <li>+7 (985) 136-30-07</li>
+            <li>info@teamrive.su</li>
+          </ul>
+        </div>
+
+        </div>
+        </div>
+        <h1>Аренда терраподов</h1>
+        <h4>и организация мероприятий</h4>
+      </div>
+            <video preload="metadata" autoplay loop id="my-video" muted ng-init="loadVideo()">
+                <source src="video/ocean.mp4" type="video/mp4">
+            </video>
+
+        </div>
+  </section>
+
+
+  <section ng-controller="slickCtrl">
+
+  <section class="catalogSection" id="catalogSection" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2 >Аренда терраподов и организация автомобильных тест-драйвов </h2>
+            <slick init-onload=true data="terrapods" slides-to-show=4 slides-to-scroll=4 dots=false responsive="breakpoints">
+                <%@terrapods.each do |pod|%>
+                <div class="item">
+                  <a href="" ng-click="clickToOpen(); rememberID(terrapod.id)">
+                    <div class="contentItem"
+                    style="background-image:url('<%=pod.preview.url%>');">
+                </div>
+              </a>
+            <%end%>
+
+            </slick>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="priceSection" id="priceSection">
+    <div class="container" >
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <!-- <h2>Презентация компании <br/> и стоимость аренды</h2> -->
+          <h2>Cтоимость аренды</h2>
+          <p>При аренде 2-ух терропадов на 5 дней предоставляется
+          <br/><span>скидка на 20%</span></p>
+          <!-- <a href="price.pdf" class="temporaryPrice"  download="TeamDrive">
+            <img src="../img/PDF.png" class="img-responsive" />
+            Скачать PDF
+          </a> -->
+        </div>
+      </div>
+      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+       <form name="form" action="https://docs.google.com/a/dshop24.ru/forms/d/1UalPr_cwd00zy4_FrJW2-QCCDiTrepGJVIqEPvv_Uss/formResponse" target="hidden_iframe"
+       ng-submit="mute = !mute;" novalidate >
+
+      <div class="row">
+        <div class="col-md-2 hidden-xs hidden-sm">
+          <ul class="designBug">
+            <li>Тип террапада</li>
+            <li>Количество дней</li>
+          </ul>
+        </div>
+        <div class="col-sm-12 col-xs-12 col-md-10 SaleWrap" >
+          <slick init-onload=true data="terrapods" slides-to-show=4 slides-to-scroll=4 dots=false responsive="breakpoints">
+                <div class="item" ng-repeat="terrapod in terrapods | orderBy:'id'">
+                <!-- <div class="item" ng-repeat="terrapod in terrapods | reverse"> -->
+                <!-- {{terrapod.id}} -->
+                  <figure>
+              <div class="imgWrap" ng-class="{active:terrapod.count > 0}">
+                <img src="{{terrapod.preview}}" class="img-responsive">
+              </div>
+              <figcaption>
+                <ul class="title">
+                  <li>{{terrapod.title}}</li>
+                </ul>
+                <ul class="addRemove">
+                  <li>
+                    <span ng-click="removeCount($index)"> – </span>
+                    <samp>{{tc[$index]}}</samp>
+                    <span ng-click="addCount($index)">+</span>
+                  </li>
+                </ul>
+              </figcaption>
+              </figure>
+
+                </div>
+            </slick>
+          <div class="col-md-12 text-right">
+            <ul class="pricePort">
+              <li>ИТОГО: {{ sum }}</li>
+              <li>Скидка: {{ skid }} руб.</li>
+            </ul>
+            <div ng-show="!mute">
+            <input name="entry.1485480676" value="{{user.name}}" class="hidden" >
+              <input name="name" ng-model="user.name" ng-class="{'allRight':form.name.$valid}" placeholder="Ваше имя" required>
+              <input type="text" name="entry.991115518" value="{{client.phoneNumber}}" class="hidden" ng-model="client.phoneNumber" ui-br-phone-number>
+            <input type="text" id="phone" name="phone" ng-model="client.phoneNumber" ng-class="{'allRight':form.phone.$valid}" ui-br-phone-number placeholder="Ваш телефон" required>
+            <input type="text" class="hidden" name="entry.1881699659" placeholder="ЗАКАЗ" value="{{sendData(terrapods);}}">
+
+            <button class="myBtn" ng-show="form.$valid">
+            Отправить</button>
+              <button class="myBtn fake" disabled ng-show="form.$invalid">Отправить
+              </button>
+              </div>
+              <div ng-show="mute">
+              <p>Спасибо. Наши специалисты свяжутся с Вами.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+    </div>
+  </section>
+  <section class="eventMakingSection" id="eventMakingSection">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Организация мероприятий</h2>
+          <p> Тест-драйв различных форматов дает возможность понять и ощутить автомобиль, благодаря чему многие потенциальные покупатели делают правильный выбор.
+              <p>Основной целью тест-драйва являются определение преимуществ и недостатков тестируемого автомобиля с целью выделения его основных достоинств. Поэтому для организации тест-драйва должна быть создана такая полоса с искусственными препятствиями, которая  максимально поможет продемонстрировать различные технические характеристики машины и ее преимущества перед остальными авто-конкурентами.</p>
+          </p>
+        </div>
+      </div>
+      <div class="row itemsWrap" ng-init="predelPosts()">
+        <div class="col-md-4" ng-repeat="event in events | limitTo: predel">
+          <figure>
+            <a ng-href="#events/{{event.id}}">
+            <div class="bgEvent" style="background-image:url('{{event.image}}')"></div>
+            <figcaption>
+              {{event.title}}
+            </figcaption>
+            </a>
+          </figure>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <ul>
+            <li  ng-hide="events.length < predel || events.length === predel; " ng-click="predel = predel +3">Показать ещё</li>
+            <li  data-toggle="modal" data-target=".MIN">Заказать мероприятие</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+<script type="text/javascript">
+    !function(a,b,c,d){"use strict";function g(b,c){function g(){d.options.originalVideoW=d.options.$video[0].videoWidth,d.options.originalVideoH=d.options.$video[0].videoHeight,d.initialised||d.init()}var d=this;this.element=b,this.options=a.extend({},f,c),this._defaults=f,this._name=e,this.options.$video=a(b),this.detectBrowser(),this.shimRequestAnimationFrame(),this.options.has3d=this.detect3d(),this.options.$videoWrap.css({position:"relative",overflow:"hidden","z-index":"10"}),this.options.$video.css({position:"absolute","z-index":"1"}),this.options.$video.on("canplay canplaythrough",g),this.options.$video[0].readyState>3&&g()}var e="backgroundVideo",f={$videoWrap:a("#video-wrap"),$outerWrap:a(b),$window:a(b),minimumVideoWidth:400,preventContextMenu:!1,parallax:!0,parallaxOptions:{effect:1.5},pauseVideoOnViewLoss:!1};g.prototype={init:function(){var a=this;this.initialised=!0,this.options.pauseVideoOnViewLoss&&this.playPauseVideo(),this.options.preventContextMenu&&this.options.$video.on("contextmenu",function(){return!1}),a.update()},update:function(){var a=this,c=!1,d=function(){a.positionObject(),c=!1},e=function(){c||(b.requestAnimationFrame(d),c=!0)};this.options.parallax&&this.options.$window.on("scroll.backgroundVideo",e),this.options.$window.on("resize.backgroundVideo",e),e()},detect3d:function(){var e,f,a=c.createElement("p"),g={WebkitTransform:"-webkit-transform",OTransform:"-o-transform",MSTransform:"-ms-transform",MozTransform:"-moz-transform",transform:"transform"};c.body.insertBefore(a,c.body.lastChild);for(e in g)a.style[e]!==d&&(a.style[e]="matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",f=b.getComputedStyle(a).getPropertyValue(g[e]));return a.parentNode.removeChild(a),f!==d?"none"!==f:!1},detectBrowser:function(){var a=navigator.userAgent.toLowerCase();a.indexOf("chrome")>-1||a.indexOf("safari")>-1?(this.options.browser="webkit",this.options.browserPrexix="-webkit-"):a.indexOf("firefox")>-1?(this.options.browser="firefox",this.options.browserPrexix="-moz-"):-1!==a.indexOf("MSIE")||a.indexOf("Trident/")>0?(this.options.browser="ie",this.options.browserPrexix="-ms-"):a.indexOf("Opera")>-1&&(this.options.browser="opera",this.options.browserPrexix="-o-")},scaleObject:function(){var b,c,d;return this.options.$videoWrap.width(this.options.$outerWrap.width()),this.options.$videoWrap.height(this.options.$outerWrap.height()),b=this.options.$window.width()/this.options.originalVideoW,c=this.options.$window.height()/this.options.originalVideoH,d=b>c?b:c,d*this.options.originalVideoW<this.options.minimumVideoWidth&&(d=this.options.minimumVideoWidth/this.options.originalVideoW),this.options.$video.width(d*this.options.originalVideoW),this.options.$video.height(d*this.options.originalVideoH),{xPos:-(parseInt(this.options.$video.width()-this.options.$window.width())/2),yPos:parseInt(this.options.$video.height()-this.options.$window.height())/2}},positionObject:function(){var a=this,c=b.pageYOffset,d=this.scaleObject(this.options.$video,a.options.$videoWrap),e=d.xPos,f=d.yPos;f=this.options.parallax?c>=0?this.calculateYPos(f,c):this.calculateYPos(f,0):-f,a.options.has3d?(this.options.$video.css(a.options.browserPrexix+"transform","translate3d(-"+e+"px, "+f+"px, 0)"),this.options.$video.css("transform","translate3d("+e+"px, "+f+"px, 0)")):(this.options.$video.css(a.options.browserPrexix+"transform","translate(-"+e+"px, "+f+"px)"),this.options.$video.css("transform","translate("+e+"px, "+f+"px)"))},calculateYPos:function(a,b){var c,d;return c=parseInt(this.options.$videoWrap.offset().top),d=c-b,a=-(d/this.options.parallaxOptions.effect+a)},disableParallax:function(){this.options.$window.unbind(".backgroundVideoParallax")},playPauseVideo:function(){var a=this;this.options.$window.on("scroll.backgroundVideoPlayPause",function(){a.options.$window.scrollTop()<a.options.$videoWrap.height()?a.options.$video.get(0).play():a.options.$video.get(0).pause()})},shimRequestAnimationFrame:function(){for(var a=0,c=["ms","moz","webkit","o"],d=0;d<c.length&&!b.requestAnimationFrame;++d)b.requestAnimationFrame=b[c[d]+"RequestAnimationFrame"],b.cancelAnimationFrame=b[c[d]+"CancelAnimationFrame"]||b[c[d]+"CancelRequestAnimationFrame"];b.requestAnimationFrame||(b.requestAnimationFrame=function(c,d){var e=(new Date).getTime(),f=Math.max(0,16-(e-a)),g=b.setTimeout(function(){c(e+f)},f);return a=e+f,g}),b.cancelAnimationFrame||(b.cancelAnimationFrame=function(a){clearTimeout(a)})}},a.fn[e]=function(b){return this.each(function(){a.data(this,"plugin_"+e)||a.data(this,"plugin_"+e,new g(this,b))})}}(jQuery,window,document);
+      $(document).ready(function(){
+          $('.mobHide').click(function() {
+              $('.collapse').toggleClass("in");
+          });
+          $('a.page-scroll').on('click',function() {
+              if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                if (target.length) {
+                  $('html,body').animate({
+                    scrollTop: target.offset().top - 70
+                  }, 900);
+                  return false;
+                }
+              }
+          });
+    });
+  </script>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-6 footNAv">
+          <ul>
+            <li><a href="#/news">Новости</a></li>
+            <li><a href="#/articles">Архив статей</a></li>
+            <li><a href="#/tests">Архив полигонов</a></li>
+
+          </ul>
+        </div>
+        <div class="col-md-6 text-right footCont">
+          <ul>
+            <li>+7 (903)<span> 118-07-45</span></li>
+            <li>+7 (985)<span> 136-30-07</span></li>
+            <li><a href="mailto:info@teamrive.su"> info@teamrive.su</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mapSection">
+      <div class="map" id="map"></div>
+
+      <div class="contactInfo">
+          <a class="closeIt" ng-click="showMap(wtf=false)">
+            <span>Закрыть</span>
+          </a>
+          <ul>
+            <li>
+              <span><img src="img/mapPic.png" alt="map"></span>
+              <span>Москва<br/>
+              Климентовский пер., д.1/18, стр.2</span>
+            </li>
+            <li>
+              <span><img src="img/mailPic.png" alt="mail"></span>
+              <span>info@teamdrive.su</span>
+            </li>
+            <li>
+              <span><img src="img/phonePic.png" alt="phone"></span>
+              <span>
+              офис: +7 (495) 797-80-38<br/>
+              +7 (903) 118-07-45 <br/>
+          +7 (985) 136-30-07</span>
+            </li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="modal MIN fade">
+      <div class="ModCont" ng-show="!mute">
+         <a class="closeIt" data-dismiss="modal"></a>
+         <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+       <form name="form" action="https://docs.google.com/a/dshop24.ru/forms/d/1UalPr_cwd00zy4_FrJW2-QCCDiTrepGJVIqEPvv_Uss/formResponse" target="hidden_iframe"
+       ng-submit="mute = !mute;" novalidate >
+          <div class="inputWrap">
+            <input name="entry.1485480676" value="{{user.name}}" class="hidden" >
+            <input name="name" ng-model="user.name" ng-class="{'allRight':form.name.$valid}" placeholder="Ваше имя" required>
+
+            <input name="entry.625744097" value="{{user.mail}}" class="hidden" >
+            <input type="email" name="mail" ng-model="user.mail" ng-class="{'allRight':form.mail.$valid}" placeholder="Ваш Email" required>
+
+            <input type="text" name="entry.991115518" value="{{client.phoneNumber}}" class="hidden" ng-model="client.phoneNumber" ui-br-phone-number>
+          <input type="text" id="phone" name="phone" ng-model="client.phoneNumber" ng-class="{'allRight':form.phone.$valid}" ui-br-phone-number placeholder="Ваш телефон" required>
+          </div>
+          <button class="modBtn" ng-show="form.$valid">Отправить</button>
+          <div class="modBtn fake" ng-show="form.$invalid">Заполните данные</div>
+         </form>
+
+      </div>
+      <div class="ModCont thankU" ng-show="mute">
+      <a class="closeIt" data-dismiss="modal"></a>
+      <p>Спасибо.<br> Наши специалисты свяжутся с Вами.</p>
+    </div>
+  </div>
+  <script type="text/ng-template" id="eventModal">
+    <div class="eventsModal" ng-controller="slickCtrl">
+      <div class="container" ng-repeat="terrapod in terrapods | filter:{id:thisID} " >
+        <div class="row">
+          <div class="col-md-offset-2 col-md-8 text-center">
+            <h2>{{terrapod.title}}</h2>
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col-md-offset-2 col-md-8">
+            <slick init-onload="true"data="terrapods" slides-to-show="1"slides-to-scroll="1"arrows="true" dots="false" class="text-center"responsive="breakpoints">
+            <div class="item" ng-repeat="slide in terrapod.images">
+              <div class="itemWrap">
+                <div class="contentItem" style="background-image:url('{{slide}}');"></div>
+                </div>
+            </div>
+          </slick>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-offset-2 col-md-8">
+            <div class="fullCont" ng-bind-html="terrapod.body"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
+
+
+
+</body>

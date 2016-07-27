@@ -1,0 +1,118 @@
+@media only screen and (max-width : 768px) {
+	.ngdialog-close {
+		top: 0px;
+		right: 5px;
+		background-color: rgba(255,255,255,.3);
+	}
+	.ngdialog-close:before,
+	.ngdialog-close:after {
+		right: 20px;
+	}
+	.navbar .navbar-header {
+		height: 65px;
+	}
+	.navbar-toggle {
+		margin-top: 15px;
+	}
+	header .navbar-fixed-top .navbar-nav {
+		text-align: center;
+		width: 100%;
+		background-color: #262626;
+		margin: 0;
+	}
+	.navbar-toggle .icon-bar {
+		background-color: #fff;
+	}
+	.navbar-collapse {
+		padding: 0;
+	}
+	.mapSection .closeIt {
+		right: 10px;
+		top: 10px;
+	}
+	.WelcomeScreen .video-wrap .contentOnVideo h1{
+		margin: 20px 0;
+		font-size: 36px;
+		letter-spacing: 1px;
+	}
+	.mapSection .contactInfo {
+		box-shadow: none;
+		background-color: rgba(42,42,42,.4);
+		color: #fff;
+		top: 0px;
+		right: 0;
+		width: 100%;
+	}
+	.mapSection .contactInfo ul {
+		padding: 10px 25px 0px;
+	}
+	.mapSection .contactInfo ul li {
+		margin: 5px 0;
+		padding: 5px 0;
+	}
+	.eventMakingSection ul li {
+		display: block;
+	}
+	.eventMakingSection ul li:nth-child(1) {
+		margin-bottom: 10px;
+	}
+	.modal .ModCont,.modal .ModCont.thankU  {
+		width: auto;
+		height: 100vh;
+		margin: 0;
+	}
+	.modal .modBtn {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		word-wrap: break-word; word-break: break-all;
+	}
+	.newsSection p, .articleSection p {
+		max-width: none;
+		text-align: center;
+	}
+	.newsSection a, .articleSection a {
+		text-align: center;
+	}
+	.readMore {
+		max-width: none;
+		text-align: center;
+	}
+	.eventsModal .item .itemWrap,
+	.eventsModal .item .itemWrap .contentItem,
+	.newsModal {
+		padding: 50px 0;
+	}
+	.newsModal .imgBg {
+		height: 250px;
+	}
+	.eventsModal slick {
+		margin-bottom: 50px;
+	}
+}
+@media only screen and (max-width : 992px) {
+		.readMore {
+			max-width: 32em;
+		}
+}
+@media only screen and (max-width : 1200px) {
+	.priceSection .SaleWrap {
+		text-align: center;
+	}
+	.priceSection figure {
+		margin-left: 0;
+	}
+	.priceSection figure figcaption ul li:nth-child(1){
+		height: 45px;
+	}
+	.priceSection figure figcaption,
+	.newsSection figure figcaption {
+		margin-bottom: 30px;
+	}
+	.navbar-collapse {
+		display: none;
+	}
+	.navbar-header {
+		display: block;
+	}
+}
