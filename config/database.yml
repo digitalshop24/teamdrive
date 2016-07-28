@@ -3,16 +3,16 @@ default: &default
   encoding: unicode
   port: 5432
   pool: 5
+  username: 'postgres'
+  password: '1111'
+
 
 development:
   <<: *default
-  database: <%= ENV['app_name'] %>_development
+  database: teamdrive_development
 test:
   <<: *default
-  database: <%= ENV['app_name'] %>_test
+  database: teamdrive_test
 production:
   <<: *default
-  database: 'd2lkra6b0cqdu7'
-  host: 'ec2-54-228-183-183.eu-west-1.compute.amazonaws.com'
-  database_username: 'rrgymarcmnrstk'
-  databse_password: 'ywC0VmuvfjTNcCwx991Bj9E-ld'
+  

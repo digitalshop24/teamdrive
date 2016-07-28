@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" ng-app="teamdriveApp">
+<html lang="ru" >
 <head>
   <meta charset="utf-8">
   <title>TeamDrive</title>
@@ -18,9 +18,80 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body >
+
+
+<header>
+      <nav class="navbar navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#top">
+              <img src="img/TDlogo.png">
+            </a>
+          </div>
+          <!--Должно переходить на гланую страницу со страницы карты и на соответствующую метку-->
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li>
+                <a class="mobHide page-scroll"
+                href="#catalogSection">Каталог</a>
+              </li>
+              <li>
+                <a class="mobHide page-scroll"
+                href="#priceSection">Стоимость</a>
+              </li>
+              <li>
+                <a class="mobHide page-scroll"
+                href="#eventMakingSection">Мероприятия</a>
+              </li>
+              <li>
+                <a href="/map" class="mobHide" ">Контакты</a>
+              </li>
+              <li class="mobHide" data-toggle="modal" data-target=".MIN" >
+                <a >Обратная связь</a>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+  </header>
+
 
 <%= yield %>
+
+
+
+  <div class="modal MIN fade" >
+      <div class="ModCont" ng-show="!mute">
+        <a class="closeIt" data-dismiss="modal"></a>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+        <form name="form" action="https://docs.google.com/a/dshop24.ru/forms/d/1UalPr_cwd00zy4_FrJW2-QCCDiTrepGJVIqEPvv_Uss/formResponse"  target="hidden_iframe"
+          ng-submit="mute = !mute;" novalidate>
+          <div class="inputWrap">
+            <input name="entry.1485480676" value="{{user.name}}" class="hidden" >
+            <input name="name" ng-model="user.name" ng-class="{'allRight':form.name.$valid}" placeholder="Ваше имя" required>
+
+            <input name="entry.625744097" value="{{user.mail}}" class="hidden" >
+            <input type="email" name="mail" ng-model="user.mail" ng-class="{'allRight':form.mail.$valid}" placeholder="Ваш Email" required>
+
+            <input type="text" name="entry.991115518" value="{{client.phoneNumber}}" class="hidden" ng-model="client.phoneNumber" ui-br-phone-number>
+          <input type="text" id="phone" name="phone" ng-model="client.phoneNumber" ng-class="{'allRight':form.phone.$valid}" ui-br-phone-number placeholder="Ваш телефон" required>
+          </div>
+          <button class="modBtn" ng-show="form.$valid">Отправить</button>
+        </form>
+      </div>
+      <div class="ModCont thankU" ng-show="mute">
+      <a class="closeIt" data-dismiss="modal"></a>
+      <p>Спасибо.<br> Наши специалисты свяжутся с Вами.</p>
+    </div>
+  </div>
+
 
 </body>
 </html>

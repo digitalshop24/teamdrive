@@ -257,10 +257,6 @@ teamdriveApp.controller("slickCtrl",['$scope','$rootScope', '$http', '$location'
       // else  if ((min_1 != 100)&&(dual_min==false)) {$scope.t[4] = min_1;}
       //       else if ((min_1 != 100)&&(dual_min==true)) {$scope.t[5] = min_1;}
 
-      console.log('t start', $scope.t);
-      console.log('min_1', min_1);
-      console.log('min_2', min_2);
-      console.log('dual_min', dual_min);
       for (i=0; i<=5; i++) {
         if ($scope.t[i] == 1) { k[i] = 1;}
         if (($scope.t[i] >= 2)&&($scope.t[i] < 5)) { k[i] = 0.9;}
@@ -285,7 +281,6 @@ teamdriveApp.controller("slickCtrl",['$scope','$rootScope', '$http', '$location'
       // else  $rootScope.skid = 0;
       $rootScope.skid = $rootScope.skid - $rootScope.sum;
       $rootScope.sum = $rootScope.sum + ' руб.'
-      console.log('$rootScope.sum', $rootScope.sum);
     }
     
     // $scope.removeCount = function(id) {

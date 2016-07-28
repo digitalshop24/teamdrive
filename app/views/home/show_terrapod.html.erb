@@ -1,0 +1,27 @@
+    <div class="eventsModal" >
+      <div class="container" >
+        <div class="row">
+          <div class="col-md-offset-2 col-md-8 text-center">
+            <h2><%=@terrapod_id.title %></h2>
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col-md-offset-2 col-md-8">
+            <slick init-onload="true" data="terrapods" slides-to-show="1" slides-to-scroll="1" arrows="true" dots="false" class="text-center" responsive="breakpoints">
+            <!--Нужно вводить все картинки-->
+            <div class="item" >
+              <div class="itemWrap">
+                <div class="contentItem" style="background-image:url('<%=@terrapod_id.preview.url %>');"></div>
+                </div>
+            </div>
+          </slick>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-offset-2 col-md-8">
+            <div class="fullCont"><%=@terrapod_id.body%></div>
+            <!--Нужно что бы распозновало html-->
+          </div>
+        </div>
+      </div>
+    </div>

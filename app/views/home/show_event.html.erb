@@ -1,0 +1,74 @@
+<!--   <header>
+  <nav class="navbar navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand page-scroll" href="#top">
+                <img src="img/TDlogo.png">
+              </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li>
+	            	<a class="mobHide page-scroll"
+	            	ng-href="/#/#catalogSection">Каталог</a>
+	            </li>
+	            <li>
+	            	<a class="mobHide page-scroll"
+	            	ng-href="/#/#priceSection">Стоимость</a>
+	            </li>
+	            <li>
+	            	<a class="mobHide page-scroll"
+	            	ng-href="/#/#eventMakingSection">Мероприятия</a>
+	            </li>
+                <li>
+                    <a class="mobHide" ng-click="showMap(wtf=true)">Контакты</a>
+                </li>
+                <li class="mobHide" data-toggle="modal" data-target=".MIN">
+                    <a>Обратная связь</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </header> -->
+		<div class="eventsModal">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-offset-2 col-md-8">
+						<p class="broad"><a href="#/">Главная</a> / <a class="page-scroll" ng-href="/#/#eventMakingSection">Организация мероприятий</a> / <a href=""><%=@event.title%></a></p>
+						
+							<div class="item">
+								<div class="itemWrap">
+									<div class="contentItem" style="background-image:url('<%=@event.image.image.url%>'); height: 500px;"></div>
+								</div>
+							</div>
+						
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-offset-2 col-md-8">
+						<h2><%=@event.title%></h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-offset-2 col-md-8">
+						<div class="fullCont"><%=@event.body%></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-offset-2 col-md-8">
+						 <div class="video-responsive">
+						 	<!-- <div my-youtube code="event.video"></div> --> <!--Вывод видео iframe-->
+						 	<iframe width="100%" height="auto" src="https://www.youtube.com/embed/<%=@event.video%>" frameborder="0" allowfullscreen></iframe>
+						 </div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
